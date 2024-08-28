@@ -185,9 +185,14 @@ form.sign-in-form {
 }
 
 .image {
-  width: 100%;
+  width: 60%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
+}
+
+.imgLogo{
+  margin-top: 10%;
+  width: 20%;
 }
 
 .panel {
