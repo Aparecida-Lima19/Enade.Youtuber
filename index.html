@@ -15,49 +15,45 @@
       <div class="forms-container">
         <div class="signin-signup">
 
-          <!--Formulário de login-->
-          <form id="loginForm" action="http://localhost:8080/api/auth/login" method="post" class="sign-in-form">
+          <form action="http://localhost:8080/api/auth/login" method="post" class="sign-in-form" id="login-form">
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" id="loginUsername" placeholder="Username" required />
+              <input type="text" placeholder="Username" name="username" maxlength="20" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" id="loginPassword" placeholder="Password" required />
+              <input type="password" placeholder="Password" name="password" maxlength="120" required />
             </div>
             <input type="submit" value="Login" class="btn solid" />
-            <p class="social-text"> esqueceu senha</p>
+            <p class="social-text">esqueceu senha</p>
             <img src="assets/img/Logo.png" alt="nassau" class="imgLogo">
           </form>
-
+          
           <!--Forms de cadastro-->
-          <form id="registerForm" action="http://localhost:8080/api/auth/register" method="post" class="sign-up-form">
+          <form action="http://localhost:8080/api/auth/register" method="post" class="sign-up-form" id="register-form">
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" id="registerUsername" placeholder="Username" maxlength="20" required />
-              <small class="error-message" id="usernameError"></small>
+              <input type="text" placeholder="Username" name="username" maxlength="20" required />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" id="registerEmail" placeholder="Email" maxlength="50" required />
-              <small class="error-message" id="emailError"></small>
+              <input type="email" placeholder="Email" name="email" maxlength="50" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" id="registerPassword" placeholder="Password" maxlength="120" required />
-              <small class="error-message" id="passwordError"></small>
+              <input type="password" placeholder="Password" name="password" maxlength="120" required />
             </div>
             <div class="input-field">
               <i class="fas fa-caret-down"></i>
-              <select name="course" id="registerCourse" required>
+              <select name="course" required>
                 <option value="" disabled selected>Escolha um curso técnico</option>
                 <option value="1">Administração</option>
                 <option value="2">Análise e Desenvolvimento de Sistemas</option>
