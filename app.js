@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = signUpForm.querySelector('input[type="password"]');
     const course = signUpForm.querySelector('select[name="course"]');
 
+    console.log("Selected Course ID:", course.value);
+
     let isValid = true;
 
     // Verificação de preenchimento
@@ -100,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
           username: username.value,
           email: email.value,
           password: password.value,
+          role:["user"],
           course: course.value
         })
       });
