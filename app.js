@@ -12,41 +12,53 @@ sign_in_btn.addEventListener("click", () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('login-form');
-  const registerForm = document.getElementById('register-form');
+  const signInForm = document.querySelector('.sign-in-form');
+  const signUpForm = document.querySelector('.sign-up-form');
 
-  loginForm.addEventListener('submit', (e) => {
-    if (!validateForm(loginForm)) {
-      e.preventDefault(); // Prevent form submission if validation fails
+  // Validação para o formulário de login
+  signInForm.addEventListener('submit', (event) => {
+    const username = signInForm.querySelector('input[type="text"]');
+    const password = signInForm.querySelector('input[type="password"]');
+    
+    if (!username.value || !password.value) {
+      event.preventDefault();
+      alert('Por favor, preencha todos os campos obrigatórios.');
     }
   });
 
-  registerForm.addEventListener('submit', (e) => {
-    if (!validateForm(registerForm)) {
-      e.preventDefault(); // Prevent form submission if validation fails
-    }
-  });
+  // Validação para o formulário de cadastro
+  signUpForm.addEventListener('submit', (event) => {
+    const username = signUpForm.querySelector('input[type="text"]');
+    const email = signUpForm.querySelector('input[type="email"]');
+    const password = signUpForm.querySelector('input[type="password"]');
+    const course = signUpForm.querySelector('select[name="course"]');
 
-  function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], select[required]');
     let isValid = true;
 
-    inputs.forEach(input => {
-      if (input.value.trim() === '') {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        isValid = false;
-      } else if (input.name === 'username' && input.value.length > 20) {
-        alert('O limite de caracteres para o nome de usuário foi ultrapassado.');
-        isValid = false;
-      } else if (input.name === 'email' && input.value.length > 50) {
-        alert('O limite de caracteres para o e-mail foi ultrapassado.');
-        isValid = false;
-      } else if (input.name === 'password' && input.value.length > 120) {
-        alert('O limite de caracteres para a senha foi ultrapassado.');
-        isValid = false;
-      }
-    });
+    // Verificação de preenchimento
+    if (!username.value || !email.value || !password.value || !course.value) {
+      isValid = false;
+      alert('Por favor, preencha todos os campos obrigatórios.');
+    }
 
-    return isValid;
-  }
+    // Verificação de limite de caracteres
+    if (username.value.length > 20) {
+      isValid = false;
+      alert('O nome de usuário deve ter no máximo 20 caracteres.');
+    }
+
+    if (email.value.length > 50) {
+      isValid = false;
+      alert('O e-mail deve ter no máximo 50 caracteres.');
+    }
+
+    if (password.value.length > 120) {
+      isValid = false;
+      alert('A senha deve ter no máximo 120 caracteres.');
+    }
+
+    if (!isValid) {
+      event.preventDefault();
+    }
+  });
 });
