@@ -270,6 +270,10 @@ form.sign-in-form {
   width: 20%;
 }
 
+select{
+  color: #f0f0f0;
+}
+
 .panel {
   display: flex;
   flex-direction: column;
