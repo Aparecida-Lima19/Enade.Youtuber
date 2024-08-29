@@ -16,7 +16,7 @@
         <div class="signin-signup">
 
           <!--Forms de login-->
-          <form action="https://www.localhost/api/Longi/login" method="post" class="sign-in-form">
+          <form action="http://localhost:8080/api/auth/login" method="post" class="sign-in-form">
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
@@ -34,7 +34,7 @@
             <img src="assets/img/Logo.png" alt="nassau" class="imgLogo">
           </form>
           <!--Forms de cadastro-->
-          <form action="https://www.localhost/api/register" method="post" class="sign-up-form">
+          <form action="http://localhost:8080/api/auth/register" method="post" class="sign-up-form">
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
@@ -53,33 +53,76 @@
             </div>
             <div class="input-field">
   <i class="fas fa-caret-down"></i>
-  <select>
+  <select name="course">
     <option value="" disabled selected>Escolha um curso técnico</option>
     <option value="1">Administração</option>
-    <option value="2">Análise e Desenvolvimmento de Sistemas</option>
+    <option value="2">Análise e Desenvolvimento de Sistemas</option>
     <option value="3">Arquitetura e Urbanismo</option>
     <option value="4">Biomedicina</option>
-    <option value="5">Ciências Contábeis</option>
-    <option value="6">Direito</option>
-    <option value="7">Educação Física</option>
-    <option value="8">Enfermagem</option>
-    <option value="9">Engenharia Mecânica </option>
-    <option value="10">Engenharia Civil</option>
-    <option value="11">Farmacia</option>
-    <option value="12">Fonoaudiologia</option>
-    <option value="13">Fisioterapia</option>
-    <option value="14">Nutrição</option>
-    <option value="15">Medicina</option>
-    <option value="16">Medicina Veterinaria</option>
-    <option value="17">Odontologia</option>
-    <option value="18">Pedagogia</option>
-    <option value="19">psicologia</option>
-    <option value="20">Terapia Ocupacional</option>
-    <option value="21">Química</option>
-    <option value="22">Cerâmica e Plásticos</option>
-    <option value="23">Refrigeração e Climatização</option>
-    <option value="24">Tecnologia da Informação</option>
-  </select>
+    <option value="5">Ciências Aeronáuticas</option>
+    <option value="6">Ciências Biológicas - Licenciatura</option>
+    <option value="7">Ciências Contábeis</option>
+    <option value="8">Ciências Econômicas</option>
+    <option value="9">Coding</option>
+    <option value="10">Computação em Nuvem (Cloud Computing)</option>
+    <option value="11">Data Science</option>
+    <option value="12">Design de Interiores</option>
+    <option value="13">Digital Security</option>
+    <option value="14">Direito</option>
+    <option value="15">E-Commerce</option>
+    <option value="16">Educação Especial - Licenciatura</option>
+    <option value="17">Educação Física - Bacharelado</option>
+    <option value="18">Educação Física - Licenciatura</option>
+    <option value="19">Empreendedorismo Digital</option>
+    <option value="20">Enfermagem</option>
+    <option value="21">Engenharia Civil</option>
+    <option value="22">Engenharia de Produção</option>
+    <option value="23">Engenharia Elétrica</option>
+    <option value="24">Engenharia Mecânica</option>
+    <option value="25">Estética e Cosmética</option>
+    <option value="26">Farmácia</option>
+    <option value="27">Filmmaker</option>
+    <option value="28">Fisioterapia</option>
+    <option value="29">Fonoaudiologia</option>
+    <option value="30">Game Design</option>
+    <option value="31">Gastronomia</option>
+    <option value="32">Geografia</option>
+    <option value="33">Gestão Ambiental</option>
+    <option value="34">Gestão Comercial</option>
+    <option value="35">Gestão da Qualidade</option>
+    <option value="36">Gestão da Tecnologia da Informação</option>
+    <option value="37">Gestão de Recursos Humanos</option>
+    <option value="38">Gestão de Serviços Jurídicos e Notariais</option>
+    <option value="39">Gestão de Trânsito</option>
+    <option value="40">Gestão Financeira</option>
+    <option value="41">Gestão Hospitalar</option>
+    <option value="42">Gestão Pública</option>
+    <option value="43">História</option>
+    <option value="44">Inteligência Artificial</option>
+    <option value="45">Internet das Coisas</option>
+    <option value="46">Letras - Espanhol</option>
+    <option value="47">Letras - Inglês</option>
+    <option value="48">Letras - Português</option>
+    <option value="49">Logística</option>
+    <option value="50">Marketing</option>
+    <option value="51">Matemática</option>
+    <option value="52">Medicina</option>
+    <option value="53">Medicina Veterinária</option>
+    <option value="54">Negócios Imobiliários</option>
+    <option value="55">Nutrição</option>
+    <option value="56">Odontologia</option>
+    <option value="57">Pedagogia</option>
+    <option value="58">Podologia</option>
+    <option value="59">Processos Gerenciais</option>
+    <option value="60">Psicologia</option>
+    <option value="61">Segunda Licenciatura em Letras - Espanhol</option>
+    <option value="62">Segunda Licenciatura em Letras - Inglês</option>
+    <option value="63">Segunda Licenciatura em Letras - Português</option>
+    <option value="64">Segurança Pública</option>
+    <option value="65">Serviço Social</option>
+    <option value="66">Teologia</option>
+    <option value="67">Terapia Ocupacional</option>
+</select>
 </div>
             
             <input type="submit" class="btn" value="Continuar" />
