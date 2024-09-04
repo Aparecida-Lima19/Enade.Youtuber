@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
+      src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
@@ -14,136 +14,133 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-
           <!--Formulário de login-->
           <form id="loginForm" action="http://localhost:8081/api/auth/login" method="post" class="sign-in-form">
-
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
             </div>
             <div class="input-field">
-              <i class="fas fa-user"></i>
+              <i data-lucide="user"></i>
               <input type="text" id="loginUsername" placeholder="Username" required />
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
+              <i data-lucide="lock"></i>
               <input type="password" id="loginPassword" placeholder="Password" required />
             </div>
             <input type="submit" value="Login" class="btn solid" />
-            <p class="social-text"> esqueceu senha</p>
-            <img src="assets/img/Logo.png" alt="nassau" class="imgLogo">
+            <p class="social-text">esqueceu senha</p>
+            <img src="assets/img/Logo.png" alt="nassau" class="imgLogo" />
           </form>
 
           <!--Forms de cadastro-->
           <form id="registerForm" action="http://localhost:8081/api/auth/register" method="post" class="sign-up-form">
-            
             <div class="tilte-logo">
               <h2 class="title">ENADE.</h2>
               <h4 class="sub-title">Quiz</h4>
             </div>
             <div class="input-field">
-              <i class="fas fa-user"></i>
+              <i data-lucide="user"></i>
               <input type="text" id="registerUsername" placeholder="Username" maxlength="20" required />
               <small class="error-message" id="usernameError"></small>
             </div>
             <div class="input-field">
-              <i class="fas fa-envelope"></i>
+              <i data-lucide="mail"></i>
               <input type="email" id="registerEmail" placeholder="Email" maxlength="50" required />
               <small class="error-message" id="emailError"></small>
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
+              <i data-lucide="lock"></i>
               <input type="password" id="registerPassword" placeholder="Password" maxlength="120" required />
               <small class="error-message" id="passwordError"></small>
             </div>
             <div class="select">
               <div id="category-select">
-
-                  <i class="fas fa-lock"></i>
-                  <div id="select-button">
-                      <div id="select-value">Selecione o Curso</div>
-                      <div id="chevrons">
-                          <i data-lucide="chevron-down"></i>
-                          <i data-lucide="chevron-up"></i>
-                      </div>
+                <label for="options-view-button">Cursos</label>
+                <input type="checkbox" id="options-view-button">
+                <div id="select-button">
+                  <div id="select-value">Selecione o Curso</div>
+                  <div id="chevrons">
+                    <i data-lucide="chevron-down"></i>
+                    <i data-lucide="chevron-up"></i>
                   </div>
+                </div>
               </div>
               <ul id="options">
-                  <li class="option">
-                      <input type="radio" name="categoria" value="1" data-label="Administração">
-                      <span>Administração</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="1" data-label="Análise e Desenvolvimento de Sistemas">
-                      <span>Análise e Desenvolvimento de Sistemas</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="3" data-label="Arquitetura e Urbanismo">
-                      <span>Arquitetura e Urbanismo</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="4" data-label="Biomedicina">
-                      <span>Biomedicina</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="5" data-label="Ciências Aeronáuticas">
-                      <span>Ciências Aeronáuticas</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="6" data-label="Ciências Biológicas - Licenciatura">
-                      <span>Ciências Biológicas - Licenciatura</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="7" data-label="Ciências Contábeis">
-                      <span>Ciências Contábeis</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="8" data-label="Ciências Econômicas">
-                      <span>Ciências Econômicas</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="9" data-label="Coding">
-                      <span>Coding</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="10" data-label="Computação em Nuvem (Cloud Computing)">
-                      <span>Computação em Nuvem (Cloud Computing)</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="11" data-label="Data Science">
-                      <span>Data Science</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="12" data-label="Design de Interiores">
-                      <span>Design de Interiores</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="13" data-label="Digital Security">
-                      <span>Digital Security</span>
-                      <i data-lucide="check"></i>
-                  </li>
-                  <li class="option">
-                      <input type="radio" name="categoria" value="14" data-label="Direito">
-                      <span>Direito</span>
-                      <i data-lucide="check"></i>
-                  </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="1" data-label="Administração">
+                  <span>Administração</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="1" data-label="Análise e Desenvolvimento de Sistemas">
+                  <span>Análise e Desenvolvimento de Sistemas</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="3" data-label="Arquitetura e Urbanismo">
+                  <span>Arquitetura e Urbanismo</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="4" data-label="Biomedicina">
+                  <span>Biomedicina</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="5" data-label="Ciências Aeronáuticas">
+                  <span>Ciências Aeronáuticas</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="6" data-label="Ciências Biológicas - Licenciatura">
+                  <span>Ciências Biológicas - Licenciatura</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="7" data-label="Ciências Contábeis">
+                  <span>Ciências Contábeis</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="8" data-label="Ciências Econômicas">
+                  <span>Ciências Econômicas</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="9" data-label="Coding">
+                  <span>Coding</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="10" data-label="Computação em Nuvem (Cloud Computing)">
+                  <span>Computação em Nuvem (Cloud Computing)</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="11" data-label="Data Science">
+                  <span>Data Science</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="12" data-label="Design de Interiores">
+                  <span>Design de Interiores</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="13" data-label="Digital Security">
+                  <span>Digital Security</span>
+                  <i data-lucide="check"></i>
+                </li>
+                <li class="option">
+                  <input type="radio" name="categoria" value="14" data-label="Direito">
+                  <span>Direito</span>
+                  <i data-lucide="check"></i>
+                </li>
               </ul>
             </div>
             <input type="submit" class="btn" value="Continuar" />
-            <img src="assets/img/Logo.png" alt="nassau" class="imgLogo">
+            <img src="assets/img/Logo.png" alt="nassau" class="imgLogo" />
           </form>
         </div>
       </div>
@@ -175,11 +172,13 @@
             </button>
           </div>
           <img src="assets/img/Mask group (1).png" class="image" alt="" />
-          
         </div>
       </div>
     </div>
 
     <script src="app.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

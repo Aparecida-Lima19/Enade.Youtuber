@@ -165,167 +165,149 @@ form.sign-in-form {
 
 /*estile do select*/
 .select {
-  border: 1px solid blue; /* Mesma cor da borda do input-field */
-  max-width: 380px;
-  width: 100%;
-  background-color: #f0f0f0; /* Mesma cor de fundo do input-field */
-  margin: 10px 0;
-  height: 55px;
-  border-radius: 55px;
-  display: grid;
-  padding: 0 0.4rem;
-  position: relative;
-}
-
-#category-select{
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
+    padding: 6rem;
 }
 
 #category-select label {
-  font-size: 0.75rem;
-  letter-spacing: 0.0225rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.0225rem;
 }
 
 #select-button {
-  display: flex;
-  padding: 0.75rem;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-  border: none;  
+    margin-top: .5rem;
+    display: flex;
+    padding: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: .375rem;
+    border: 1px solid #252529;
+    background-color: #17171a;
 }
 
 #select-value {
-  color: #AFABB6;
-  line-height: 1;
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.02625rem;
+    color: #AFABB6;
+    font-size: 0.875rem;
+    letter-spacing: 0.02625rem;
 }
 
 #chevrons svg {
-  width: 1rem;
-  height: 1rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 #chevrons {
-  color: #AFABB6;
+    color: #AFABB6;
 }
 
 #chevrons [data-lucide="chevron-up"] {
-  display: none;
+    display: none;
 }
 
 #options-view-button:focus + #select-button,
 #options-view-button:checked + #select-button {
-  outline: 1px solid #A881E6;
+    outline: 1px solid #A881E6;
 }
 
 #category-select:has(#options-view-button:checked) label,
 #options-view-button:checked + #select-button #chevrons {
-  color: #A881E6;
+    color: #A881E6;
 }
 
 #options-view-button:checked + #select-button #chevrons [data-lucide="chevron-down"] {
-  display: none;
+    display: none;
 }
 
 #options-view-button:checked + #select-button #chevrons [data-lucide="chevron-up"] {
-  display: block;
+    display: block;
 }
 
 #category-select {
-  position: relative;
+    position: relative;
 }
 
 #options-view-button {
-  all: unset;
+    all: unset;
 
-  position: absolute;
-  inset: 0;
+    position: absolute;
+    inset: 0;
 
-  cursor: pointer;
-  z-index: 3;
+    cursor: pointer;
+    z-index: 3;
 }
 
 #options{
-  margin-top: .25rem;
+    margin-top: .25rem;
 
-  border-radius: .375rem;
-  border: 1px solid #252529;
-  background-color: #171717;
-  
-  display: none;
+    border-radius: .375rem;
+    border: 1px solid #252529;
+    background-color: #171717;
+    
+    display: none;
 }
 
 .option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-  padding: 0.75rem;
+    padding: 0.75rem;
 
-  border-bottom: 1px solid #252529;
-  position: relative;
+    border-bottom: 1px solid #252529;
+    position: relative;
 }
 
 .option .label{
-  color: #fbf9fe;
+    color: #fbf9fe;
 }
 
 .options svg {
-  width: 1rem;
-  height: 1rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .option svg:last-child {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .option:has(input:checked),
 .option:hover {
-  border-bottom: 1px solid #252529;
-  background-color: #252529;
+    border-bottom: 1px solid #252529;
+    background-color: #252529;
 }
 
 .option:has(input:focus) {
-  outline: 1px solid #A881E6;
+    outline: 1px solid #A881E6;
 }
 
 .option [data-lucide="check"] {
-  display: none;
+    display: none;
 }
 
 .option:has(input:checked) [data-lucide="check"] {
-  display: block;
+    display: block;
 }
 
 .option input[type="radio"] {
-  all: unset;
+    all: unset;
 
-  position: absolute;
-  inset: 0;
+    position: absolute;
+    inset: 0;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #category-select:has(#options-view-button:checked) + #options {
-  display: block;
+    display: block;
 }
 
 .select:has(.options input:checked) #category-select label {
-  color: #A881E6;
+    color: #A881E6;
 }
 
 .select:has(.options input:checked) #select-value {
-  color: #fbf9fe;
+    color: #fbf9fe;
 }
-/*
-
-
 
 /* Vamos mudar essa parte, Vai ser um esqueceu senha...*/
 .social-text {

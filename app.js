@@ -10,6 +10,50 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+
+  const selectButton = document.getElementById('category-select');
+  const selectValue = document.getElementById('select-value');
+  const optionsList = document.getElementById('options');
+  const options = optionsList.querySelectorAll('.option input');
+
+  // Alterna a exibição das opções ao clicar no botão
+  selectButton.addEventListener('click', () => {
+    optionsList.classList.toggle('active');
+    const chevrons = selectButton.querySelector('#chevrons i');
+    if (optionsList.classList.contains('active')) {
+      chevrons.dataset.lucide = 'chevron-up';
+    } else {
+      chevrons.dataset.lucide = 'chevron-down';
+    }
+    lucide.createIcons();
+  });
+
+  // Fecha o dropdown e atualiza o valor selecionado ao clicar em uma opção
+  options.forEach(option => {
+    option.addEventListener('change', () => {
+      selectValue.textContent = option.dataset.label;
+      optionsList.classList.remove('active');
+      const chevrons = selectButton.querySelector('#chevrons i');
+      chevrons.dataset.lucide = 'chevron-down';
+      lucide.createIcons();
+    });
+  });
+
+  // Fecha o dropdown se clicar fora dele
+  document.addEventListener('click', event => {
+    if (!selectButton.contains(event.target)) {
+      optionsList.classList.remove('active');
+      const chevrons = selectButton.querySelector('#chevrons i');
+      chevrons.dataset.lucide = 'chevron-down';
+      lucide.createIcons();
+    }
+  });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const signInForm = document.querySelector('.sign-in-form');
   const signUpForm = document.querySelector('.sign-up-form');
