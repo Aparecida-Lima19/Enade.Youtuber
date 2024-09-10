@@ -1,19 +1,21 @@
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
-
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
-});
-
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
-});
-
-
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicialização dos ícones
   lucide.createIcons();
 
+  // Alternância de modos de login/cadastro
+  const sign_in_btn = document.querySelector("#sign-in-btn");
+  const sign_up_btn = document.querySelector("#sign-up-btn");
+  const container = document.querySelector(".container");
+
+  sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+  });
+
+  sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
+  });
+
+  // Lógica do dropdown de seleção de curso
   const selectButton = document.getElementById('category-select');
   const selectValue = document.getElementById('select-value');
   const optionsList = document.getElementById('options');
@@ -22,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Alterna a exibição das opções ao clicar no botão
   selectButton.addEventListener('click', () => {
     optionsList.classList.toggle('active');
-    const chevrons = selectButton.querySelector('#chevrons i');
+    const chevrons = selectButton.querySelectorAll('#chevrons i');
     if (optionsList.classList.contains('active')) {
-      chevrons.dataset.lucide = 'chevron-up';
+      chevrons.forEach(chevron => chevron.dataset.lucide = 'chevron-up');
     } else {
-      chevrons.dataset.lucide = 'chevron-down';
+      chevrons.forEach(chevron => chevron.dataset.lucide = 'chevron-down');
     }
     lucide.createIcons();
   });
@@ -36,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     option.addEventListener('change', () => {
       selectValue.textContent = option.dataset.label;
       optionsList.classList.remove('active');
-      const chevrons = selectButton.querySelector('#chevrons i');
-      chevrons.dataset.lucide = 'chevron-down';
+      const chevrons = selectButton.querySelectorAll('#chevrons i');
+      chevrons.forEach(chevron => chevron.dataset.lucide = 'chevron-down');
       lucide.createIcons();
     });
   });
@@ -46,89 +48,67 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', event => {
     if (!selectButton.contains(event.target)) {
       optionsList.classList.remove('active');
-      const chevrons = selectButton.querySelector('#chevrons i');
-      chevrons.dataset.lucide = 'chevron-down';
+      const chevrons = selectButton.querySelectorAll('#chevrons i');
+      chevrons.forEach(chevron => chevron.dataset.lucide = 'chevron-down');
       lucide.createIcons();
     }
   });
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const signInForm = document.querySelector('.sign-in-form');
+  // Validação e submissão do formulário de cadastro
   const signUpForm = document.querySelector('.sign-up-form');
 
-  // Validação para o formulário de login
-  signInForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const username = signInForm.querySelector('input[type="text"]');
-    const password = signInForm.querySelector('input[type="password"]');
-    
-    if (!username.value || !password.value) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
-
-    // Requisição para login
-    try {
-      const loginResponse = await fetch('http://localhost:8081/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: username.value,
-          password: password.value
-        })
-      });
-
-      if (!loginResponse.ok) {
-        throw new Error('Erro no login');
-      }
-
-      const loginData = await loginResponse.json();
-      console.log('Login Response:', loginData);
-      alert('Login bem-sucedido!');
-
-      // Redirecionar ou realizar outras ações após o login bem-sucedido
-    } catch (error) {
-      console.error('Erro no login:', error);
-      alert('Falha no login. Verifique suas credenciais.');
-    }
-  });
-
-  // Validação para o formulário de cadastro
   signUpForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const username = signUpForm.querySelector('input[type="text"]');
-    const email = signUpForm.querySelector('input[type="email"]');
-    const password = signUpForm.querySelector('input[type="password"]');
-    const course = signUpForm.querySelector('select[name="course"]');
 
-    console.log("Selected Course ID:", course.value);
+    const username = signUpForm.querySelector('#registerUsername');
+    const email = signUpForm.querySelector('#registerEmail');
+    const password = signUpForm.querySelector('#registerPassword');
+    const selectedCourse = document.querySelector('input[name="categoria"]:checked'); // Correção aqui
 
     let isValid = true;
 
-    // Verificação de preenchimento
-    if (!username.value || !email.value || !password.value || !course.value) {
+    // Limpar mensagens de erro anteriores
+    document.getElementById('usernameError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+
+    // Validação de username
+    if (!username.value) {
+      document.getElementById('usernameError').textContent = 'O campo nome de usuário é obrigatório.';
       isValid = false;
-      alert('Por favor, preencha todos os campos obrigatórios.');
+    } else if (username.value.length > 20) {
+      document.getElementById('usernameError').textContent = 'O nome de usuário deve ter no máximo 20 caracteres.';
+      isValid = false;
     }
 
-    // Verificação de limite de caracteres
-    if (username.value.length > 20) {
+    // Validação de email
+    if (!email.value) {
+      document.getElementById('emailError').textContent = 'O campo e-mail é obrigatório.';
       isValid = false;
-      alert('O nome de usuário deve ter no máximo 20 caracteres.');
+    } else if (!/\S+@\S+\.\S+/.test(email.value)) {
+      document.getElementById('emailError').textContent = 'O e-mail informado não é válido.';
+      isValid = false;
+    } else if (email.value.length > 50) {
+      document.getElementById('emailError').textContent = 'O e-mail deve ter no máximo 50 caracteres.';
+      isValid = false;
     }
 
-    if (email.value.length > 50) {
+    // Validação de senha
+    if (!password.value) {
+      document.getElementById('passwordError').textContent = 'O campo senha é obrigatório.';
       isValid = false;
-      alert('O e-mail deve ter no máximo 50 caracteres.');
+    } else if (password.value.length > 120) {
+      document.getElementById('passwordError').textContent = 'A senha deve ter no máximo 120 caracteres.';
+      isValid = false;
+    } else if (password.value.length < 8) {
+      document.getElementById('passwordError').textContent = 'A senha deve ter no mínimo 8 caracteres.';
+      isValid = false;
     }
 
-    if (password.value.length > 120) {
+    // Verificação de curso selecionado
+    if (!selectedCourse) {
+      alert("Por favor, selecione um curso.");
       isValid = false;
-      alert('A senha deve ter no máximo 120 caracteres.');
     }
 
     if (!isValid) {
@@ -146,24 +126,22 @@ document.addEventListener('DOMContentLoaded', () => {
           username: username.value,
           email: email.value,
           password: password.value,
-          role:["user"],
-          course: course.value
+          role: ["user"],
+          course: selectedCourse.value // Correção aqui
         })
       });
 
       if (!registerResponse.ok) {
-        throw new Error('Erro no cadastro');
+        const errorResponse = await registerResponse.json();
+        throw new Error(errorResponse.message || 'Erro no cadastro');
       }
 
       const registerData = await registerResponse.json();
       console.log('Register Response:', registerData);
       alert('Cadastro bem-sucedido!');
-
-      // Opcionalmente, você pode automaticamente logar o usuário após o cadastro
-      // ou redirecioná-lo para a página de login.
     } catch (error) {
       console.error('Erro no cadastro:', error);
-      alert('Falha no cadastro. Verifique os dados e tente novamente.');
+      alert(error.message || 'Falha no cadastro. Verifique os dados e tente novamente.');
     }
   });
 });

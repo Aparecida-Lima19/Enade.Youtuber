@@ -127,7 +127,7 @@ form.sign-in-form {
 }
 
 .input-field {
-  border: 1px solid blue;
+  border: 1px solid rgba(44, 41, 41, 0.138);
   max-width: 380px;
   width: 100%;
   background-color: #f0f0f0;
@@ -165,7 +165,13 @@ form.sign-in-form {
 
 /*estile do select*/
 .select {
-    padding: 6rem;
+  margin-top: 5px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 55px;
+    border: 1px solid rgba(44, 41, 41, 0.138);
+    background-color: #f0f0f0;
+    padding: 0 30px 0 60px ;   
 }
 
 #category-select label {
@@ -174,15 +180,11 @@ form.sign-in-form {
 }
 
 #select-button {
-    margin-top: .5rem;
+    height: 55px;
+    width: 100%;
     display: flex;
-    padding: 0.75rem;
     align-items: center;
-    justify-content: space-between;
-
-    border-radius: .375rem;
-    border: 1px solid #252529;
-    background-color: #17171a;
+    justify-content: space-between;  
 }
 
 #select-value {
@@ -206,12 +208,12 @@ form.sign-in-form {
 
 #options-view-button:focus + #select-button,
 #options-view-button:checked + #select-button {
-    outline: 1px solid #A881E6;
+    outline: 1px solid ;
 }
 
 #category-select:has(#options-view-button:checked) label,
 #options-view-button:checked + #select-button #chevrons {
-    color: #A881E6;
+    color:  rgba(44, 41, 41, 0.284) ;
 }
 
 #options-view-button:checked + #select-button #chevrons [data-lucide="chevron-down"] {
@@ -238,12 +240,12 @@ form.sign-in-form {
 
 #options{
     margin-top: .25rem;
-
-    border-radius: .375rem;
-    border: 1px solid #252529;
-    background-color: #171717;
+    border: 1px solid rgba(44, 41, 41, 0.138);
+    background-color: #f0f0f0;
     
     display: none;
+    max-height: 200px; /* Define a altura máxima visível */
+    overflow-y: auto;  /* Permite a rolagem quando o conteúdo excede a altura */
 }
 
 .option {
@@ -253,7 +255,7 @@ form.sign-in-form {
 
     padding: 0.75rem;
 
-    border-bottom: 1px solid #252529;
+    border-bottom: 1px solid rgba(44, 41, 41, 0.138);
     position: relative;
 }
 
@@ -272,12 +274,12 @@ form.sign-in-form {
 
 .option:has(input:checked),
 .option:hover {
-    border-bottom: 1px solid #252529;
-    background-color: #252529;
+    border-bottom: 1px solid rgba(44, 41, 41, 0.284);
+    background-color: rgba(44, 41, 41, 0.138);
 }
 
 .option:has(input:focus) {
-    outline: 1px solid #A881E6;
+    outline: 1px solid  rgba(44, 41, 41, 0.284);
 }
 
 .option [data-lucide="check"] {
